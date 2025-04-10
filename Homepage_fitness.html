@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fitness & Meal Planner</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #000000cc, #000000cc),
+                  url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1500&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff200;
+      text-align: center;
+      padding: 60px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #fff200;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #fff200;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .link-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      background-color: #fff200;
+      border: none;
+      border-radius: 50px;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 242, 0, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      animation: popIn 1.5s ease-out;
+      display: inline-block;
+    }
+
+    .link-button:hover {
+      background-color: #e6d400;
+      transform: scale(1.07);
+      box-shadow: 0 8px 20px rgba(255, 242, 0, 0.6);
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 0, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      border: 2px solid #fff20033;
+      box-shadow: 0 0 20px rgba(255, 242, 0, 0.2);
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Your Fitness Journey Starts Here</h1>
+    <p>Ready to plan your meals and smash your fitness goals?</p>
+    <a href="css animation.html" target="_blank" class="link-button">Open Fitness & Meal Planner</a>
+    <a href="geolocation.html" target="_blank" class="link-button">View Fitness Map</a>
+    <a href="drag and drop m2.html" target="_blank" class="link-button">Meal Plan Customization</a>
+    <a href="sse.html" target="_blank" class="link-button">Live Updates</a>
+
+  </div>
+
+</body>
+</html>
+
+<!-- For the homepage, we successfully created the links which connect the geolocation, drag and drop, Css animation and SSE. We also used a little bit animation and picture that related with the previous webpages (geolocation, dragndrop, css & sse). Below are the references for this html file.
+References
+Linking to other pages on your website. (n.d.). https://www.homeandlearn.co.uk/WD/wds5pA.html#:~:text=Linking%20in%20HTML%20code%20is,see%20how%20to%20do%20later.
+
+https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1500&q=80 -->

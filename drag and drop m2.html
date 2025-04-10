@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plan Customization</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: url('https://freshmealplan.com/cdn/shop/articles/01-The-Benefits-of-Meal-Prepping.png?v=1663355346') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: yellow;
+        }
+
+        .meal-plan {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .meal-day {
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid yellow;
+            box-shadow: 0 4px 10px rgba(255, 255, 0, 0.5);
+        }
+
+        .meal-day h3 {
+            text-align: center;
+            color: yellow;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .meal-list {
+            list-style-type: none;
+            padding: 0;
+            min-height: 200px;
+            border-bottom: 2px dashed white;
+            margin-bottom: 15px;
+        }
+
+        .food-item {
+            background-color: yellow;
+            margin: 5px;
+            padding: 12px;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 14px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .food-item:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .drop-zone {
+            background-color: #333;
+            border: 2px dashed yellow;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .drop-zone p {
+            font-size: 16px;
+        }
+
+        .meal-day-footer {
+            text-align: center;
+            font-size: 14px;
+            color: yellow;
+            font-weight: bold;
+        }
+
+        .meal-plan-header {
+            grid-column: span 7;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Meal Plan Customization</h1>
+
+    <div class="meal-plan">
+        <div class="meal-plan-header">
+            <h2>Drag and Drop Your Meals for the Week</h2>
+        </div>
+
+        <script>
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+            document.write(days.map(day => `
+                <div class="meal-day" id="${day.toLowerCase()}">
+                    <h3>${day}</h3>
+                    <ul id="${day.toLowerCase()}-list" class="meal-list" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <li id="apple-${day.toLowerCase()}" class="food-item" draggable="true" ondragstart="drag(event)">Apple - 95 kcal</li>
+                        <li id="chicken-${day.toLowerCase()}" class="food-item" draggable="true" ondragstart="drag(event)">Chicken Breast - 165 kcal</li>
+                        <li id="avocado-${day.toLowerCase()}" class="food-item" draggable="true" ondragstart="drag(event)">Avocado - 240 kcal</li>
+                    </ul>
+                    <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <p>Drag food items here</p>
+                    </div>
+                    <div class="meal-day-footer">Total Calories: 0</div>
+                </div>
+            `).join(""));
+        </script>
+    </div>
+
+    <script>
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
+            const dropZone = event.target;
+            
+            if (dropZone.classList.contains("meal-list") || dropZone.classList.contains("drop-zone")) {
+                dropZone.appendChild(draggedElement);
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<!-- Drag and drop, we were using w3school and web.dev for the codings.
+Picture from the internet.
+References
+W3Schools.com. (n.d.-c). https://www.w3schools.com/html/html5_draganddrop.asp
+The HTML5 drag and drop API. (2010, September 30). web.dev. https://web.dev/articles/drag-and-drop
+https://freshmealplan.com/cdn/shop/articles/01-The-Benefits-of-Meal-Prepping.png?v=1663355346 -->
